@@ -24,12 +24,17 @@ type LoginResponse struct {
 	Data    struct {
 		AuthToken string
 		UserId    string
+		Me        struct {
+			Username string
+			Roles    []string
+		}
 	}
 	Response string
 }
 type InfoResponse struct {
 	User struct {
-		Type string
+		Type  string
+		Roles []string
 	}
 	Success bool
 }
@@ -97,7 +102,7 @@ var (
 		PluginConfig: sensu.PluginConfig{
 			Name:     "sensu-rocketchat-handler",
 			Short:    "Sensu Handler to send messages to rocketchat chat service",
-			Keyspace: "sensu.io/plugins/sensu-rocketchat-handler/config",
+			Keyspace: "sensu.io/plugins/rocketchat/config",
 		},
 	}
 
@@ -265,10 +270,10 @@ func executeHandler(event *types.Event) error {
 		postMessageData := postMessage(message)
 		if postMessageData.Success {
 			if plugin.Verbose {
-				log.Println("RocketChat Message sent to channel: #" + plugin.Channel + " <" + plugin.Url + "> message: " + message + " [ok]")
+				log.Println("RocketChat Message sent to channel: " + plugin.Channel + " <" + plugin.Url + "> message: " + message + " [ok]")
 			}
 		} else {
-			log.Println("RocketChat Message sent to channel: #" + plugin.Channel + " <" + plugin.Url + "> message: " + message + " [error]")
+			log.Println("RocketChat Message sent to channel: " + plugin.Channel + " <" + plugin.Url + "> message: " + message + " [error]")
 			log.Fatal("Error posting message to RocketChat:", postMessageData.Error)
 		}
 		if len(plugin.User) > 0 {
@@ -279,6 +284,10 @@ func executeHandler(event *types.Event) error {
 				}
 			} else {
 				log.Println("RocketChat log out [failed]")
+			}
+		} else {
+			if plugin.Verbose {
+				log.Println("RocketChat log out [skipped]")
 			}
 		}
 	} else {
@@ -306,18 +315,15 @@ func isBot() bool {
 
 	u, err := url.Parse(plugin.Url)
 	u.Path = path.Join(u.Path, "/api/v1/users.info")
-	body := strings.NewReader(`userId=` + plugin.UserID)
-	req, err := http.NewRequest("GET", u.String(), body)
+	log.Printf("User Info for User: %v", plugin.User)
+	req, err := http.NewRequest("GET", u.String()+"?username="+plugin.User, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
 	req.Header.Set("X-Auth-Token", plugin.Token)
 	req.Header.Set("X-User-Id", plugin.UserID)
-	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Set("Content-Type", "application/json")
 
-	if plugin.Verbose {
-		log.Printf("User Info Http Request: %+v", req)
-	}
 	infoResponse := InfoResponse{}
 	if plugin.DryRun {
 		infoResponse.Success = true
@@ -332,12 +338,11 @@ func isBot() bool {
 		b, _ := ioutil.ReadAll(resp.Body)
 		err = json.Unmarshal(b, &infoResponse)
 		if plugin.Verbose {
-			fmt.Printf("User Info Response: Bot: %v\n", infoResponse.User.Type == `bot`)
-
+			log.Printf("User %s has bot role: %v\n", plugin.User, contains(infoResponse.User.Roles, "bot"))
 		}
 	}
 	if infoResponse.Success {
-		return infoResponse.User.Type == "bot"
+		return contains(infoResponse.User.Roles, "bot")
 	} else {
 		return false
 	}
@@ -407,15 +412,13 @@ func login() LoginResponse {
 		log.Fatal(err)
 	}
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
-	if plugin.Verbose {
-		log.Printf("Login Http Request: %+v", req)
-	}
 	loginResponse := LoginResponse{}
 	if plugin.DryRun {
 		loginResponse.Status = "success"
 		loginResponse.Response = "Dry Run: No RocketChat login request made"
 		loginResponse.Data.AuthToken = "dryrun"
 		loginResponse.Data.UserId = "dryrun"
+		loginResponse.Data.Me.Username = "dryrun"
 	} else {
 		resp, err := http.DefaultClient.Do(req)
 		if err != nil {
@@ -425,9 +428,13 @@ func login() LoginResponse {
 		b, _ := ioutil.ReadAll(resp.Body)
 		err = json.Unmarshal(b, &loginResponse)
 		loginResponse.Response = string(b)
+		if plugin.Verbose {
+			log.Printf("Login Data: %+v", loginResponse.Data.Me)
+		}
 	}
 	plugin.Token = loginResponse.Data.AuthToken
 	plugin.UserID = loginResponse.Data.UserId
+	plugin.User = loginResponse.Data.Me.Username
 	return loginResponse
 }
 
@@ -442,9 +449,6 @@ func postMessage(message string) PostMessageResponse {
 	req.Header.Set("X-Auth-Token", plugin.Token)
 	req.Header.Set("X-User-Id", plugin.UserID)
 	req.Header.Set("Content-Type", "application/json")
-	if plugin.Verbose {
-		log.Printf("PostMessage Http Request: %+v", req)
-	}
 	postMessageResponse := PostMessageResponse{}
 	if plugin.DryRun {
 		postMessageResponse.Success = true
@@ -471,9 +475,6 @@ func logout() LogoutResponse {
 	req.Header.Set("X-Auth-Token", plugin.Token)
 	req.Header.Set("X-User-Id", plugin.UserID)
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
-	if plugin.Verbose {
-		log.Printf("Logout Http Request: %+v", req)
-	}
 	logoutResponse := LogoutResponse{}
 	if plugin.DryRun {
 		logoutResponse.Status = "success"
@@ -489,4 +490,14 @@ func logout() LogoutResponse {
 		err = json.Unmarshal(b, &logoutResponse)
 	}
 	return logoutResponse
+}
+
+func contains(s []string, str string) bool {
+	for _, v := range s {
+		if v == str {
+			return true
+		}
+	}
+
+	return false
 }
