@@ -314,6 +314,9 @@ func buildMsg(event *corev2.Event) (string, error) {
 func isBot() bool {
 
 	u, err := url.Parse(plugin.Url)
+	if err != nil {
+		log.Fatal(err)
+	}
 	u.Path = path.Join(u.Path, "/api/v1/users.info")
 	log.Printf("User Info for User: %v", plugin.User)
 	req, err := http.NewRequest("GET", u.String()+"?username="+plugin.User, nil)
@@ -335,8 +338,14 @@ func isBot() bool {
 			log.Fatal(err)
 		}
 		defer resp.Body.Close()
-		b, _ := ioutil.ReadAll(resp.Body)
+		b, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			log.Fatal(err)
+		}
 		err = json.Unmarshal(b, &infoResponse)
+		if err != nil {
+			log.Fatal(err)
+		}
 		if plugin.Verbose {
 			log.Printf("User %s has bot role: %v\n", plugin.User, contains(infoResponse.User.Roles, "bot"))
 		}
@@ -357,6 +366,7 @@ func messageAttachment(event *corev2.Event) MsgAttachment {
 
 	a := MsgAttachment{
 		Title: "Description",
+		Text:  description,
 		Color: messageColor(event),
 	}
 	fields := []AttachmentField{
@@ -404,6 +414,9 @@ func messageColor(event *corev2.Event) string {
 
 func login() LoginResponse {
 	u, err := url.Parse(plugin.Url)
+	if err != nil {
+		log.Fatal(err)
+	}
 	u.Path = path.Join(u.Path, "/api/v1/login")
 
 	body := strings.NewReader(`user=` + plugin.User + `&password=` + plugin.Password)
@@ -425,8 +438,14 @@ func login() LoginResponse {
 			log.Fatal(err)
 		}
 		defer resp.Body.Close()
-		b, _ := ioutil.ReadAll(resp.Body)
+		b, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			log.Fatal(err)
+		}
 		err = json.Unmarshal(b, &loginResponse)
+		if err != nil {
+			log.Fatal(err)
+		}
 		loginResponse.Response = string(b)
 		if plugin.Verbose {
 			log.Printf("Login Data: %+v", loginResponse.Data.Me)
@@ -440,6 +459,9 @@ func login() LoginResponse {
 
 func postMessage(message string) PostMessageResponse {
 	u, err := url.Parse(plugin.Url)
+	if err != nil {
+		log.Fatal(err)
+	}
 	u.Path = path.Join(u.Path, "/api/v1/chat.postMessage")
 	body := strings.NewReader(message)
 	req, err := http.NewRequest("POST", u.String(), body)
@@ -459,14 +481,23 @@ func postMessage(message string) PostMessageResponse {
 			log.Fatal(err)
 		}
 		defer resp.Body.Close()
-		b, _ := ioutil.ReadAll(resp.Body)
+		b, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			log.Fatal(err)
+		}
 		err = json.Unmarshal(b, &postMessageResponse)
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 	return postMessageResponse
 }
 
 func logout() LogoutResponse {
 	u, err := url.Parse(plugin.Url)
+	if err != nil {
+		log.Fatal(err)
+	}
 	u.Path = path.Join(u.Path, "/api/v1/logout")
 	req, err := http.NewRequest("POST", u.String(), nil)
 	if err != nil {
@@ -486,8 +517,14 @@ func logout() LogoutResponse {
 		}
 		defer resp.Body.Close()
 
-		b, _ := ioutil.ReadAll(resp.Body)
+		b, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			log.Fatal(err)
+		}
 		err = json.Unmarshal(b, &logoutResponse)
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 	return logoutResponse
 }
