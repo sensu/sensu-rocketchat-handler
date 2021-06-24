@@ -1,0 +1,1089 @@
+{
+  "check": {
+    "command": "system-profile-linux",
+    "interval": 60,
+    "publish": false,
+    "metadata": {
+      "name": "system-profile",
+      "namespace": "default",
+      "labels": {
+        "sensu.io/managed_by": "sensuctl"
+      }
+    },
+    "secrets": null,
+    "is_silenced": false,
+    "scheduler": ""
+  },
+  "entity": {
+    "entity_class": "agent",
+    "subscriptions": [],
+    "last_seen": 1624068620,
+    "deregister": true,
+    "deregistration": {
+      "handler": "deregister"
+    },
+    "user": "agent",
+    "redact": [
+      "password",
+      "passwd",
+      "pass",
+      "api_key",
+      "api_token",
+      "access_key",
+      "secret_key",
+      "private_key",
+      "secret"
+    ],
+    "metadata": {
+      "name": "custom_agent",
+      "namespace": "default",
+      "labels": {
+        "what": "now"
+      }
+    },
+    "sensu_agent_version": "6.3.0"
+  },
+  "id": "7f477dd3-9855-4f1e-927e-37127552a473",
+  "metadata": {
+    "namespace": "default"
+  },
+  "metrics": {
+    "handlers": null,
+    "points": [
+      {
+        "name": "cpu.user",
+        "value": 4119045,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu.nice",
+        "value": 6597,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu.system",
+        "value": 1224641,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu.idle",
+        "value": 30100446,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu.iowait",
+        "value": 29349,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu.irq",
+        "value": 465878,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu.softirq",
+        "value": 168184,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu.steal",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu0.user",
+        "value": 499763,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu0.nice",
+        "value": 1347,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu0.system",
+        "value": 153983,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu0.idle",
+        "value": 8410704,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu0.iowait",
+        "value": 8470,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu0.irq",
+        "value": 86486,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu0.softirq",
+        "value": 45705,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu0.steal",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu1.user",
+        "value": 536250,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu1.nice",
+        "value": 701,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu1.system",
+        "value": 152629,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu1.idle",
+        "value": 3059909,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu1.iowait",
+        "value": 2828,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu1.irq",
+        "value": 66520,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu1.softirq",
+        "value": 19916,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu1.steal",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu2.user",
+        "value": 516097,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu2.nice",
+        "value": 959,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu2.system",
+        "value": 137821,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu2.idle",
+        "value": 3107183,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu2.iowait",
+        "value": 3221,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu2.irq",
+        "value": 64636,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu2.softirq",
+        "value": 16034,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu2.steal",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu3.user",
+        "value": 508112,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu3.nice",
+        "value": 512,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu3.system",
+        "value": 145176,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu3.idle",
+        "value": 3104047,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu3.iowait",
+        "value": 3000,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu3.irq",
+        "value": 33339,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu3.softirq",
+        "value": 16000,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu3.steal",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu4.user",
+        "value": 536594,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu4.nice",
+        "value": 569,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu4.system",
+        "value": 188834,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu4.idle",
+        "value": 3090058,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu4.iowait",
+        "value": 2728,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu4.irq",
+        "value": 97310,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu4.softirq",
+        "value": 24042,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu4.steal",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu5.user",
+        "value": 520236,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu5.nice",
+        "value": 635,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu5.system",
+        "value": 158282,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu5.idle",
+        "value": 3106098,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu5.iowait",
+        "value": 2973,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu5.irq",
+        "value": 54688,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu5.softirq",
+        "value": 16746,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu5.steal",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu6.user",
+        "value": 496378,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu6.nice",
+        "value": 615,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu6.system",
+        "value": 141864,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu6.idle",
+        "value": 3113972,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu6.iowait",
+        "value": 3060,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu6.irq",
+        "value": 32443,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu6.softirq",
+        "value": 17851,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu6.steal",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu7.user",
+        "value": 505610,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu7.nice",
+        "value": 1257,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu7.system",
+        "value": 146049,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu7.idle",
+        "value": 3108472,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu7.iowait",
+        "value": 3066,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu7.irq",
+        "value": 30453,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu7.softirq",
+        "value": 11886,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "cpu7.steal",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "intr",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "ctxt",
+        "value": 612618265,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "btime",
+        "value": 1623945550,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "processes",
+        "value": 173692,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "procs_running",
+        "value": 4,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "procs_blocked",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "softirq",
+        "value": 49014412,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "load_avg.1_min",
+        "value": 0.84,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "load_avg.5_min",
+        "value": 0.81,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "load_avg.15_min",
+        "value": 0.89,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "memory.memtotal",
+        "value": 16058764,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "memory.memfree",
+        "value": 717776,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "memory.memavailable",
+        "value": 6570044,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "memory.buffers",
+        "value": 2048544,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "memory.cached",
+        "value": 4892176,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "swap.swapcached",
+        "value": 1020,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "memory.active",
+        "value": 4515692,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "swap.swaptotal",
+        "value": 12328952,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "swap.swapfree",
+        "value": 12308848,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "memory.committed_as",
+        "value": 22211084,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.lo.rxbytes",
+        "value": 254081399,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.lo.rxpackets",
+        "value": 2051910,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.lo.rxerrors",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.lo.rxdrops",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.lo.rxfifo",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.lo.rxframe",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.lo.rxcompressed",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.lo.rxmulticast",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.lo.txbytes",
+        "value": 254081399,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.lo.txpackets",
+        "value": 2051910,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.lo.txerrors",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.lo.txdrops",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.lo.txfifo",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.lo.txcolls",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.lo.txcarrier",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.lo.txcompressed",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.enp0s31f6.rxbytes",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.enp0s31f6.rxpackets",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.enp0s31f6.rxerrors",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.enp0s31f6.rxdrops",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.enp0s31f6.rxfifo",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.enp0s31f6.rxframe",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.enp0s31f6.rxcompressed",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.enp0s31f6.rxmulticast",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.enp0s31f6.txbytes",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.enp0s31f6.txpackets",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.enp0s31f6.txerrors",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.enp0s31f6.txdrops",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.enp0s31f6.txfifo",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.enp0s31f6.txcolls",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.enp0s31f6.txcarrier",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.enp0s31f6.txcompressed",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.wlp0s20f3.rxbytes",
+        "value": 8507311818,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.wlp0s20f3.rxpackets",
+        "value": 6513544,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.wlp0s20f3.rxerrors",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.wlp0s20f3.rxdrops",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.wlp0s20f3.rxfifo",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.wlp0s20f3.rxframe",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.wlp0s20f3.rxcompressed",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.wlp0s20f3.rxmulticast",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.wlp0s20f3.txbytes",
+        "value": 473670947,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.wlp0s20f3.txpackets",
+        "value": 2646334,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.wlp0s20f3.txerrors",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.wlp0s20f3.txdrops",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.wlp0s20f3.txfifo",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.wlp0s20f3.txcolls",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.wlp0s20f3.txcarrier",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.wlp0s20f3.txcompressed",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0.rxbytes",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0.rxpackets",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0.rxerrors",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0.rxdrops",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0.rxfifo",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0.rxframe",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0.rxcompressed",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0.rxmulticast",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0.txbytes",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0.txpackets",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0.txerrors",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0.txdrops",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0.txfifo",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0.txcolls",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0.txcarrier",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0.txcompressed",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0-nic.rxbytes",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0-nic.rxpackets",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0-nic.rxerrors",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0-nic.rxdrops",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0-nic.rxfifo",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0-nic.rxframe",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0-nic.rxcompressed",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0-nic.rxmulticast",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0-nic.txbytes",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0-nic.txpackets",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0-nic.txerrors",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0-nic.txdrops",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0-nic.txfifo",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0-nic.txcolls",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0-nic.txcarrier",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      },
+      {
+        "name": "net.virbr0-nic.txcompressed",
+        "value": 0,
+        "timestamp": 1624068620,
+        "tags": null
+      }
+    ]
+  },
+  "sequence": 1,
+  "timestamp": 1624068620
+}
