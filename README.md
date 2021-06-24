@@ -49,6 +49,7 @@ Flags:
   -n, --dry-run                       Used for testing, do not communicate with RocketChat API, report only (implies --verbose)
   -h, --help                          help for sensu-rocketchat-handler
 ```
+***Note:*** The avatar-url and alias configuration options can only be used if the authenticated user is a member of the `bot` Rocketchat role. The handler will attempt to determine if the authenticated RocketChat user has permissions to set these features, and if it does not will disable alias and avatar-url overrides.
 
 ### Environment variables
 
