@@ -109,10 +109,9 @@ spec:
 
 ### Templates
 
-This handler provides options for using templates to populate the SumoLogic HTTP source attributes. 
-By default the source host is populated using a template to extract the Sensu entity name. The default
-source name is populated using a template to extract the Sensu check name. More information on template 
-syntax and format can be found in [the documentation][9]
+This handler provides options for using templates to populate the RocketChat msg description. 
+By default the description is populated using a template to extract the Sensu check output. 
+More information on template syntax and format can be found in [the documentation][9]
 
 
 ### Annotations
